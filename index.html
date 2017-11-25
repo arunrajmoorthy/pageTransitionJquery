@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+     <head>
+         <title> Page Transition </title>   
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>		 
+     </head>
+
+     <body>
+         <h1> This is Currect Page. </h1>
+		 <a href="nextPage.html"> Next Page </a>
+		 
+		 <script>
+		 
+		     jQuery('body').css('display', 'none');
+			 jQuery(document).ready(function(){
+			     jQuery('body').fadeIn();
+				 jQuery('a').on('click', function(event){
+				     var theTarget = this.getAttribute('target');
+					 if(theTarget != '_blank') {
+					      var theHref = this.getAttribute('href');
+						  console.log(theHref);
+						  event.preventDefault();
+						  jQuery('body').fadeOut(function(){
+						     window.location = theHref; 
+						  
+						  });
+					 }
+				 });
+			 });
+             /*setTimeout(function(){
+			     jQuery('body').fadeIn();
+			 }, 1000)	*/		 
+		 
+		 </script>
+
+     </body>	 
+
+</html>
